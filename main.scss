@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+
+$primary-font: 'Montserrat', sans-serif;
+$bg-color: #262626;
+$font-color: #fff;
+$card-item-colors: #3c3c3c;
+$color-green: #056716;
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: $bg-color;
+    color: $font-color;
+    font-family: $primary-font;
+}
+
+.wrapper 
+{
+    width: 90%;
+    margin: 30px auto;
+    text-align: center;
+
+    h1 {
+        text-transform: uppercase;
+        padding-bottom: 10px;
+    }
+
+    h3 {
+        letter-spacing: 3px;
+        color: #ccc;
+    }
+
+    h4 {
+        font-weight: 200;
+        padding-top: 5px;
+    }
+}
+
+
+.cards 
+{
+    width: 60%;
+    margin: 80px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    @media screen and (max-width: 768px) {
+        width: 100%;
+        margin: 20px auto;
+    }
+}
+
+.card-item 
+{
+    width: 23%;
+    height: 170px;
+    background: #373737;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    transition: transform .3s ease, opacity .3s ease, visibility .3s ease;
+    border: 1px solid $card-item-colors;
+    background: url(images/question_mark.png) center/65% no-repeat;
+    opacity: 0;
+
+    &:hover 
+    {
+        cursor: pointer; 
+    }
+
+    img 
+    {
+        max-width: 70%;
+        transform: rotateY(180deg);
+    }
+
+    @media screen and (max-width: 500px) {
+        height: 70px!important;
+    }
+
+    @media screen and (max-width: 768px) {
+        height: 120px;
+    }
+    
+   
+}
+
+.active
+{
+    background: none;
+    transform: rotateY(180deg);
+    box-shadow: 0px 0px 13px 10px $card-item-colors;
+}
+
+.pairTrue
+{
+    transform: rotateY(180deg) scale(1.15);
+    box-shadow: 0px 0px 13px 7px $color-green; 
+}
+
+.hideCard 
+{
+    opacity: 0;
+    visibility: hidden;
+}
+
+#playGame
+{
+    padding: 15px 80px;
+    font-size: 20px;
+    background: none;
+    outline: none;
+    border: none;
+    border-bottom: 3px solid $color-green;
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: inset 0px -11px 7px -10px $color-green;
+    position: absolute;
+    top: 270px;
+    cursor: pointer;
+    transition: all .15s ease-in-out;
+}
+
+#playGame:hover {
+    transform: scale(1.1);
+    box-shadow: inset 0px -11px 7px -7px $color-green;
+}
